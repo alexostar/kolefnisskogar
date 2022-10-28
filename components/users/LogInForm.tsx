@@ -42,18 +42,15 @@ export default function LogInForm() {
   }
 
   return (
-    <div className='flex flex-col justify-start items-center mt-12'>
+    <div className='flex flex-col justify-start items-center mt-12 min-h-screen grow'>
       <div className='bg-white shadow-md border border-gray-200 rounded-lg w-96 p-4 sm:p-6 lg:p-8 my-6'>
         <form className='space-y-6' method='post' onSubmit={handleSubmit}>
-          <p className='italic text-gray-800'>
-            In Safari this only works if you disable{' '}
-            <span className='font-bold'>Prevent cross site tracking</span>
-          </p>
+          <h1 className='text-xl mb-6'>INNSKRÁNING</h1>
           <fieldset disabled={loading} aria-busy={loading}>
             <label
               className='text-sm font-medium text-gray-900 block mb-2'
               htmlFor='log-in-email'>
-              Email
+              Netfang
             </label>
             <input
               className='mb-4 bg-orange-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5'
@@ -64,12 +61,12 @@ export default function LogInForm() {
               required
             />
             <label
-              className='text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300'
+              className='text-sm font-medium text-gray-900 block mb-2 dark:text-slate-300'
               htmlFor='log-in-password'>
-              Password
+              Lykilorð
             </label>
             <input
-              className='mb-4 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5'
+              className='mb-8 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5'
               id='log-in-password'
               type='password'
               name='password'
@@ -78,7 +75,7 @@ export default function LogInForm() {
             />
             <Link href='/users/log-in'>
               <a className='text-gray-300'>
-                Forgot password? (Disabled in this demo)
+                Gleymt lykilorði? (Not enabled yet)
               </a>
             </Link>
             {!isEmailValid ? (
@@ -90,16 +87,15 @@ export default function LogInForm() {
               </p>
             ) : null}
             <button
-              className='mt-2 w-full text-white bg-indigo-600 hover:bg-indigo-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+              className='mt-2 w-full text-white bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
               type='submit'
               disabled={loading}>
               {loading ? 'Logging in...' : 'Login'}
             </button>
           </fieldset>
           <p className=''>
-            Don&#39;t have an account yet?{' '}
             <Link href='/users/sign-up'>
-              <a className='text-indigo-600 hover:underline'>Sign up</a>
+              <a className='text-orange-600 hover:underline'>NÝSKRÁNING</a>
             </Link>
           </p>
         </form>

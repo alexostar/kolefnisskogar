@@ -20,7 +20,7 @@ export default function Header() {
               kolefnis
             </p>
             <span className='text-xl font-semibold text-orange-700 tracking-widest'>
-              skogar.is
+              skógar
             </span>
           </a>
         </Link>
@@ -40,22 +40,22 @@ export default function Header() {
             </li>
 
             {!loggedIn ? (
-              <li className='hidden md:inline cursor-pointer bg-indigo-600 hover:bg-indigo-800 py-2 px-7 mx-4 rounded-lg'>
+              <li className='hidden md:inline cursor-pointer text-sm bg-orange-600 hover:bg-orange-800 py-1 px-2 mx-4 rounded-lg'>
                 <Link href='/users/log-in'>
-                  <a className='text-white text-lg'>Login</a>
+                  <a className='text-white text-lg'>Innskráning</a>
                 </Link>
               </li>
             ) : (
               <>
-                <li className='hidden md:inline cursor-pointer mr-3 hover:text-indigo-400'>
+                <li className='hidden md:inline cursor-pointer hover:text-orange-600'>
                   <Link href='/mynotes'>
                     <a>My notes</a>
                   </Link>
                 </li>
 
-                <li className='hidden md:inline cursor-pointer bg-indigo-600 hover:bg-indigo-800 py-2 px-4 mx-4 rounded-lg'>
+                <li className='hidden md:inline cursor-pointer text-sm bg-orange-600 hover:bg-orange-800 py-1 px-2 mx-4 rounded-lg'>
                   <Link href='/users/log-out'>
-                    <a className='text-white text-lg'>Logout</a>
+                    <a className='text-white text-lg'>Útskráning</a>
                   </Link>
                 </li>
               </>

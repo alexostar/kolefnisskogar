@@ -22,7 +22,7 @@ export default function LogOut() {
   }, [logOut]);
 
   return (
-    <div>
+    <div className='min-h-screen grow'>
       <h1>Log Out</h1>
       {!called || loading ? (
         <p>Logging out...</p>

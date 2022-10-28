@@ -14,7 +14,7 @@ export default function About() {
       <div className='w-full'>
         <p className='text-sm italic text-right '>Mynd: Sigurður H Magnússon</p>
       </div>
-      <h1 className='text-4xl text-slate-900 my-6'>Um kolefnisskogar.is</h1>
+      <h1 className='text-4xl text-slate-900 my-6'>Um þennan vef</h1>
       <p className='my-3 text-base sm:text-lg'>
         Kveikjan að þessum vef er greinin{' '}
         <a
@@ -55,14 +55,17 @@ export default function About() {
         </a>{' '}
         Skógarkolefni er verkefni sem Skógræktin hefur hrundið af stað til að
         koma á fót viðurkenndu ferli vottunar á bindingu kolefnis með
-        nýskógrækt. <strong>Hér er markaðssetningin oft ansi villandi!</strong>
+        nýskógrækt. Hér er markaðssetningin oft ansi villandi.
       </p>
-      <p className='my-3 italic'>
-        Ganga frá texta um hver sé tillgangurinn með þessum vef.
+      <p className='my-3'>
+        Tilgangur þessa vefs er að miðla upplýsingum um kolefnisbindingu í
+        Skógrækt til að sporna við villandi markaðssetningu til almennings,
+        fyrirtækja og stofnana, og að vera vettvangur fyrir rýni á
+        kolefnisverkefni þar sem umhverfisvernd ekki virðist vera í hávegum
+        höfð.
       </p>
-      <p className='mt-3 mb-6 italic'>
-        Ganga frá texta um hverjir standi á bak við með þennan vef.
-      </p>
+      <p className='mt-3'>Sigfús Bjarnason</p>
+      <p className='mb-6'>Áhugamaður um landgræðslu</p>
     </div>
   );
 }
