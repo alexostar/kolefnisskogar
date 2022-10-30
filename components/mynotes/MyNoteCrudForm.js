@@ -15,9 +15,6 @@ export default function MynoteCrudForm({ mynote, user }) {
     defaultValues: {
       name: mynote ? mynote.name : '',
       details: mynote ? mynote.details : '',
-      category: mynote ? mynote.category : '',
-      sortingOrder: mynote ? mynote.sortingOrder : 1,
-      publish: mynote ? mynote.publish : 0,
     },
   });
 
@@ -48,9 +45,6 @@ export default function MynoteCrudForm({ mynote, user }) {
       variables: {
         name: data.name,
         details: data.details,
-        category: data.category,
-        sortingOrder: data.sortingOrder,
-        publish: !!data.publish,
       },
       onCompleted: refetch,
     });
@@ -61,10 +55,9 @@ export default function MynoteCrudForm({ mynote, user }) {
   if (wasMynoteCreated) {
     return (
       <div>
-        <p>Note successfully created!</p>
-        <Link href={`/mynotes`}>
-          <a className='text-indigo-600'>Back to my notes</a>
-        </Link>
+        <p className='py-12'>
+          Takk fyrir að þú hafðir samband! Ég mun svara fljótlega.
+        </p>
       </div>
     );
   }
@@ -75,9 +68,7 @@ export default function MynoteCrudForm({ mynote, user }) {
       variables: {
         name: data.name,
         details: data.details,
-        category: data.category,
-        sortingOrder: data.sortingOrder,
-        publish: !!data.publish,
+
         id: mynote.id,
       },
       onCompleted: refetch,
@@ -142,6 +133,7 @@ export default function MynoteCrudForm({ mynote, user }) {
   return (
     <div className='flex flex-col justify-start items-center mt-6 mb-6'>
       <div className='bg-white shadow-md border border-gray-200 rounded-lg w-96 p-4 sm:p-6 lg:p-8 sm:my-6'>
+        <h1 className='text-xl mb-6'>HAFÐU SAMBAND</h1>
         <form
           className='space-y-6'
           onSubmit={handleSubmit(mynote ? executeUpdate : executeCreate)}>
@@ -149,7 +141,7 @@ export default function MynoteCrudForm({ mynote, user }) {
             <label
               className='text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300'
               htmlFor='name'>
-              Name
+              Fyrirsögn
             </label>
             <textarea
               className='mb-4 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5'
@@ -163,59 +155,13 @@ export default function MynoteCrudForm({ mynote, user }) {
             <label
               className='text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300'
               htmlFor='details'>
-              Details
+              Skilaboð
             </label>
             <textarea
               className='mb-4 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5'
               id='details'
+              rows='10'
               {...register('details', { required: true })}
-            />
-          </div>
-
-          <div className='mb-4'>
-            <label
-              className='text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300'
-              htmlFor='category'>
-              Category
-            </label>
-            <select
-              className='mb-4 border bg-gray-50 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5'
-              id='category'
-              {...register('category', { required: true })}>
-              <option value=''>Select...</option>
-              <option value='Memo'>Memo</option>
-              <option value='Todo'>ToDo</option>
-              <option value='Info'>Info</option>
-              <option value='Publ'>Publ</option>
-            </select>
-          </div>
-          <div className='mb-4'>
-            <label
-              className='text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300'
-              htmlFor='sortingOrder'>
-              Sorting order (1 to 9)
-            </label>
-            <input
-              className='mb-4 border bg-gray-50 border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5'
-              id='sortingOrder'
-              type='number'
-              {...register('sortingOrder', {
-                required: true,
-                valueAsNumber: true,
-              })}
-            />
-          </div>
-          <div className='mb-4'>
-            <label
-              className='text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300'
-              htmlFor='publish'>
-              This note is ready for publishing
-            </label>
-            <input
-              className='mb-4 border border-gray-300 text-gray-900 sm:text-sm rounded-lg bg-indigo-500 focus:ring-indigo-500 focus:border-indigo-500 block p-2.5'
-              id='publish'
-              type='checkbox'
-              {...register('publish', { required: false })}
             />
           </div>
 
@@ -225,31 +171,31 @@ export default function MynoteCrudForm({ mynote, user }) {
                 <button
                   className='mt-2 text-white bg-indigo-500 hover:bg-indigo-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-6 py-2.5 text-center'
                   type='submit'>
-                  Update
+                  Senda
                 </button>
                 <Link href='/mynotes'>
                   <a className='mt-2 text-white bg-indigo-500 hover:bg-indigo-600 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-6 py-2.5 text-center'>
-                    Cancel
+                    Hætta við
                   </a>
                 </Link>
                 <button
                   className='mt-2 text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-6 py-2.5 text-center'
                   type='button'
                   onClick={executeDelete}>
-                  Delete
+                  Eyða
                 </button>
               </div>
             )}
             {!mynote && (
               <div className='flex w-full justify-evenly'>
                 <button
-                  className='mt-2 text-white bg-indigo-500 hover:bg-indigo-600 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-12 py-2.5 text-center'
+                  className='mt-2 text-white bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-12 py-2.5 text-center'
                   type='submit'>
-                  Create
+                  Senda
                 </button>
-                <Link href='/mynotes'>
-                  <a className='mt-2 text-white bg-indigo-500 hover:bg-indigo-600 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-12 py-2.5 text-center'>
-                    Cancel
+                <Link href='/'>
+                  <a className='mt-2 text-white bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-12 py-2.5 text-center'>
+                    Hætta við
                   </a>
                 </Link>
               </div>

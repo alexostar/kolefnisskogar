@@ -1,8 +1,7 @@
 import { CaptureData } from '../data/average-person-12-ton.js';
-import { Line } from 'react-chartjs-2';
+
 import LineChart50 from './LineScreen50.jsx';
 import LineChart80 from './LineScreen80.jsx';
-//import { cumsum } from 'mathjs';
 
 import {
   Chart as ChartJS,
@@ -71,7 +70,7 @@ export default function CaptureRelease50YearsCover() {
     <>
       <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col'>
         <h1 className='text-xl sm:text-3xl mb-3'>
-          <strong>Kolefnisjöfnun</strong> með skógrækt í 50 ár
+          <i>Kolefnisjöfnun</i> með skógrækt í 50 ár
         </h1>
 
         <div className='inline lg:hidden'>

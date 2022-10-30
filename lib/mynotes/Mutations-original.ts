@@ -1,8 +1,23 @@
 import { gql } from '@apollo/client';
 
 export const CREATE_MYNOTE = gql`
-  mutation createMynote($name: String!, $details: String!) {
-    createMynote(input: { name: $name, details: $details }) {
+  mutation createMynote(
+    $name: String!
+    $details: String!
+    $category: String!
+    $sortingOrder: Float!
+    $publish: Boolean!
+  ) {
+    createMynote(
+      input: {
+        name: $name
+        details: $details
+        category: $category
+        sortingOrder: $sortingOrder
+        publish: $publish
+        status: PUBLISH
+      }
+    ) {
       mynote {
         databaseId
         id

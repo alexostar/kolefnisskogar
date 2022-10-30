@@ -23,7 +23,7 @@ export default function LogOut() {
 
   return (
     <div className='min-h-screen grow'>
-      <h1>Log Out</h1>
+      <h1 className='italic mt-6'>Remains to get this page in order</h1>
       {!called || loading ? (
         <p>Logging out...</p>
       ) : error ? (
@@ -31,7 +31,7 @@ export default function LogOut() {
       ) : !loggedOut ? (
         <p>Unable to log out. Please reload the page and try again.</p>
       ) : (
-        <p>You have been logged out.</p>
+        <p className='text-xl mt-6'>Þú ert nú útskráður</p>
       )}
     </div>
   );

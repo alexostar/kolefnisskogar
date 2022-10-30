@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import { HiMenu } from 'react-icons/hi';
 import { AiOutlineClose } from 'react-icons/ai';
+import { BiLogIn } from 'react-icons/bi';
+import { BiLogOut } from 'react-icons/bi';
 
 import useAuth from '@/hooks/useAuth';
 
 export default function Header() {
+  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const { loggedIn } = useAuth();
 
@@ -30,7 +34,7 @@ export default function Header() {
           <ul className='space-x-8'>
             <li className='hidden md:inline cursor-pointer hover:text-orange-600'>
               <Link href='/calculations'>
-                <a>Blogg</a>
+                <a>Útreikningar</a>
               </Link>
             </li>
             <li className='hidden md:inline cursor-pointer hover:text-orange-600'>
@@ -40,24 +44,22 @@ export default function Header() {
             </li>
 
             {!loggedIn ? (
-              <li className='hidden md:inline cursor-pointer text-sm bg-orange-600 hover:bg-orange-800 py-1 px-2 mx-4 rounded-lg'>
-                <Link href='/users/log-in'>
-                  <a className='text-white text-lg'>Innskráning</a>
-                </Link>
-              </li>
+              <BiLogIn
+                className='text-2xl text-slate-900 hidden md:inline cursor-pointer hover:text-orange-600'
+                onClick={() => router.push('/users/log-in')}
+              />
             ) : (
               <>
                 <li className='hidden md:inline cursor-pointer hover:text-orange-600'>
-                  <Link href='/mynotes'>
-                    <a>My notes</a>
+                  <Link href='/mynotes/create'>
+                    <a>Ábendingar</a>
                   </Link>
                 </li>
 
-                <li className='hidden md:inline cursor-pointer text-sm bg-orange-600 hover:bg-orange-800 py-1 px-2 mx-4 rounded-lg'>
-                  <Link href='/users/log-out'>
-                    <a className='text-white text-lg'>Útskráning</a>
-                  </Link>
-                </li>
+                <BiLogOut
+                  className='text-2xl text-slate-900 hidden md:inline cursor-pointer hover:text-orange-600'
+                  onClick={() => router.push('/users/log-out')}
+                />
               </>
             )}
 
@@ -90,18 +92,50 @@ export default function Header() {
                   <Link href='/calculations'>
                     <a
                       onClick={() => setMenuOpen(false)}
-                      className='cursor-pointer hhover:text-orange-600'>
-                      Blogg
+                      className='cursor-pointer hover:text-orange-600'>
+                      Útreikningar
                     </a>
                   </Link>
+                </li>
 
+                <li className='my-2 mr-3 text-lg flex flex-col items-end'>
+                  <Link href='/mynotes/create'>
+                    <a
+                      onClick={() => setMenuOpen(false)}
+                      className='cursor-pointer hover:text-orange-600'>
+                      Ábendingar
+                    </a>
+                  </Link>
+                </li>
+
+                <li className='my-2 mr-3 text-lg flex flex-col items-end'>
                   <Link href='/about'>
                     <a
                       onClick={() => setMenuOpen(false)}
                       className='cursor-pointer hover:text-orange-600'>
-                      Um kolefnisskógar.is
+                      Um vefinn
                     </a>
                   </Link>
+                </li>
+
+                <li className='my-2 mr-3 text-lg flex flex-col items-end'>
+                  {!loggedIn ? (
+                    <Link href='/users/log-in'>
+                      <a
+                        onClick={() => setMenuOpen(false)}
+                        className='cursor-pointer hover:text-orange-600'>
+                        Innskráning
+                      </a>
+                    </Link>
+                  ) : (
+                    <Link href='/users/log-out'>
+                      <a
+                        onClick={() => setMenuOpen(false)}
+                        className='cursor-pointer hover:text-orange-600'>
+                        Útskráning
+                      </a>
+                    </Link>
+                  )}
                 </li>
               </ul>
             )}

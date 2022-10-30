@@ -32,18 +32,18 @@ export default function About() {
         <a
           href='https://kjarninn.is/frettir/varar-vid-villandi-markadssetningu-vardandi-kolefnisjofnunar/'
           className=' text-blue-700'>
-          Varar við villandi markaðssetningu varðandi kolefnisjöfnun
+          Varar við villandi markaðssetningu varðandi kolefnisjöfnun,
         </a>{' '}
         byggð á minnisblaði ritað af Stefáni Gíslasyni
-        Umhverfisstjórnunarfræðingi. Þar er fjallað um að hugtökunum
+        umhverfisstjórnunarfræðingi. Þar er fjallað um að hugtökunum
         kolefnisbindingu og kolefnisjöfnun sé oft ruglað saman. Í minnisblaðinu
         bendir Stefán á að{' '}
-        <q>
+        <i>
           Kolefnisbinding er hvert það ferli sem tekur til sín koldíoxíð úr
           andrúnsloftinu og bindur það sem kolefni en hinsvegar sé ekki hægt að
           tala um kolefnisjöfnun fyrr en bindingin hefur átt sér stað með
           sannanlegum hætti og að uppfylltum nokkrum grundvallarskilyrðum.
-        </q>
+        </i>
       </p>
       <p className='my-3 text-base sm:text-lg'>
         Fyrirtæki og samtök sem vinna við kolefnisbindingu nota oft í sinni
@@ -57,15 +57,23 @@ export default function About() {
         koma á fót viðurkenndu ferli vottunar á bindingu kolefnis með
         nýskógrækt. Hér er markaðssetningin oft ansi villandi.
       </p>
-      <p className='my-3'>
-        Tilgangur þessa vefs er að miðla upplýsingum um kolefnisbindingu í
-        Skógrækt til að sporna við villandi markaðssetningu til almennings,
-        fyrirtækja og stofnana, og að vera vettvangur fyrir rýni á
-        kolefnisverkefni þar sem umhverfisvernd ekki virðist vera í hávegum
-        höfð.
+      <p className='my-3 text-base sm:text-lg'>
+        Tilgangur þessa vefs er að miðla upplýsingum um kolefnisbindingu og
+        kolefnisjöfnun í skógrækt til að sporna við villandi markaðssetningu og
+        að vera vettvangur fyrir rýni á kolefnisverkefni þar sem umhverfisvernd
+        ekki virðist vera í hávegum höfð.
       </p>
-      <p className='mt-3'>Sigfús Bjarnason</p>
-      <p className='mb-6'>Áhugamaður um landgræðslu</p>
+      <p className='my-3 text-base sm:text-lg'>
+        Hafðu samband{' '}
+        <Link href='/contactform'>
+          <a className='text-blue-700'>hér</a>
+        </Link>{' '}
+        ef þú villt koma ábendingum á framfæri um verkefni sem taka mætti til
+        skoðunar eða gera athugasemdir við eitthvað sem birtist hér. Þú getur
+        líka sent tölvupóst til info[hjá]casabrava.se.
+      </p>
+      <p className='mt-3 text-base sm:text-lg'>Sigfús Bjarnason</p>
+      <p className='mb-6 text-base sm:text-lg'>Áhugamaður um landgræðslu</p>
     </div>
   );
 }

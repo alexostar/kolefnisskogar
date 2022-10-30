@@ -23,7 +23,7 @@ export default function Layout({ title, keywords, description, children }) {
 }
 
 Layout.defaultProps = {
-  title: 'Kolefnisbrask | Kolefnisbinding í skógi',
+  title: 'Kolefnisskógar | Kolefnisbinding í skógi',
   description: 'Kolefnisjöfnun með skógrækt á Íslandi',
   keywords: 'Kolefnisbinding, Kolefnisjöfnun, Skógrækt, Ísland',
 };

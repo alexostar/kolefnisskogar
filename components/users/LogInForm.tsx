@@ -15,8 +15,7 @@ export default function LogInForm() {
   const [logIn, { loading, error }] = useMutation(LOG_IN, {
     refetchQueries: [{ query: GET_USER }],
   });
-  console.log(logIn);
-  console.log('Login on', process.env.NEXT_PUBLIC_WORDPRESS_API_URL);
+
   const errorMessage = error?.message || '';
   const isEmailValid =
     !errorMessage.includes('empty_email') &&
@@ -45,7 +44,12 @@ export default function LogInForm() {
     <div className='flex flex-col justify-start items-center mt-12 min-h-screen grow'>
       <div className='bg-white shadow-md border border-gray-200 rounded-lg w-96 p-4 sm:p-6 lg:p-8 my-6'>
         <form className='space-y-6' method='post' onSubmit={handleSubmit}>
-          <h1 className='text-xl mb-6'>INNSKRÁNING</h1>
+          <h1 className='text-xl mb-6'>
+            LOGIN{' '}
+            <span>
+              <i>(Not yet implemented)</i>
+            </span>
+          </h1>
           <fieldset disabled={loading} aria-busy={loading}>
             <label
               className='text-sm font-medium text-gray-900 block mb-2'
@@ -90,12 +94,12 @@ export default function LogInForm() {
               className='mt-2 w-full text-white bg-orange-600 hover:bg-orange-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
               type='submit'
               disabled={loading}>
-              {loading ? 'Logging in...' : 'Login'}
+              {loading ? 'Logging in...' : 'Innskráning'}
             </button>
           </fieldset>
           <p className=''>
             <Link href='/users/sign-up'>
-              <a className='text-orange-600 hover:underline'>NÝSKRÁNING</a>
+              <a className='text-blue-600 hover:underline'>NÝSKRÁNING</a>
             </Link>
           </p>
         </form>

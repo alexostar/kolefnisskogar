@@ -3,21 +3,28 @@ import emailjs from '@emailjs/browser';
 
 const EmailContactForm = () => {
   const form = useRef();
-  const service = process.env.EMAILJS_SERVICE_KEY;
-  const template = process.env.EMAILJS_PUBLIC_KEY;
-  const apikey = process.env.EMAILJS_TEMPLATE;
+  //const service = process.env.EMAILJS_SERVICE_KEY;
+  //const template = process.env.EMAILJS_PUBLIC_KEY;
+  //const apikey = process.env.EMAILJS_TEMPLATE;
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(service, template, form.current, apikey).then(
-      (result) => {
-        alert('Your message has been sent');
-      },
-      (error) => {
-        // show the user an error
-      }
-    );
+    emailjs
+      .sendForm(
+        'service_iu320z4',
+        'kolefnisskogar_template',
+        form.current,
+        '6dW3H3zWSNkcCAAD4'
+      )
+      .then(
+        (result) => {
+          alert('Your message has been sent');
+        },
+        (error) => {
+          // show the user an error
+        }
+      );
   };
 
   /* 
@@ -30,7 +37,7 @@ const EmailContactForm = () => {
       )
   */
 
-  console.log(service, template, apikey);
+  //console.log(service, template, apikey);
 
   return (
     <div className='flex flex-col justify-start items-center my-12'>
@@ -58,15 +65,13 @@ const EmailContactForm = () => {
           <textarea
             className='mb-4 bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5'
             name='message'
+            rows='10'
           />
           <input
             className='mt-2 text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-12 py-2.5 text-center w-full hover:cursor-pointer'
             type='submit'
             value='Senda'
           />
-          <p className='my-6 italic'>
-            This form remains to be tested. Don´t use yet!
-          </p>
         </form>
       </div>
     </div>

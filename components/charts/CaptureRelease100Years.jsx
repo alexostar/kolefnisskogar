@@ -70,10 +70,10 @@ export default function CaptureRelease100Years() {
     <>
       <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col'>
         <h1 className='text-xl sm:text-2xl'>
-          <strong>Kolefnisjöfnun</strong> með skógrækt í 100 ár
+          <i>Kolefnisjöfnun</i> með skógrækt í 100 ár
         </h1>
         <p className='mb-2'>
-          Kolefnisspori och nýrri skógrækt lýkur eftir 50 ár
+          Kolefnisspori og nýrri skógrækt lýkur eftir 50 ár
         </p>
         <div className='inline lg:hidden'>
           <LineChart80 options={options} data={data} />
