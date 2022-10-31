@@ -110,8 +110,7 @@ export default function NordurlandBasicChart() {
           Aldur og áætluð árleg binding (tonn) í 50 ár
         </h1>
         <p className='mb-2'>
-          Svæði: Norðurland, Skagafjörður, Hólar - Blönduhlíð (vel gróið,
-          áborið)
+          Svæði: Norðurland,Skagafjörður, Sauðárkrókur (vel gróið, áborið)
         </p>
         <div className='inline lg:hidden'>
           <LineChart80 options={options} data={data} />

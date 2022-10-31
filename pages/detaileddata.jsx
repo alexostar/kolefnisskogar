@@ -2,6 +2,11 @@ import SudurlandBasicChart from '@/components/charts/basicdatacharts/SudurlandBa
 import AusturlandBasicChart from '@/components/charts/basicdatacharts/AusturlandBasicChart';
 import NordurlandBasicChart from '@/components/charts/basicdatacharts/NordurlandBasicChart';
 import VesturlandBasicChart from '@/components/charts/basicdatacharts/VesturlandBasicChart';
+import PercentageComparison from '@/components/charts/basicdatacharts/PercentageComparison';
+import CapturePerYearTotal12 from '@/components/charts/coverstorycharts/CapturePerYearTotal12';
+import CumulativeCapturePerYearTotal12 from '@/components/charts/coverstorycharts/CumulativeCapturePerYearTotal12';
+import CumulativeCaptureAllLotsTotal12 from '@/components/charts/coverstorycharts/CumulativeCaptureAllLotsTotal12';
+import Cover50YearsOfCarbonOffsets from '@/components/charts/coverstorycharts/Cover50YearsOfCarbonOffsets';
 
 export default function DetailedData() {
   return (
@@ -17,6 +22,22 @@ export default function DetailedData() {
       </div>
       <div className='my-6'>
         <VesturlandBasicChart />
+      </div>
+      <div className='my-6'>
+        <PercentageComparison />
+      </div>
+      <div className='my-6'>
+        <CapturePerYearTotal12 />
+      </div>
+      <div className='my-6'>
+        <CumulativeCapturePerYearTotal12 />
+      </div>
+      <div className='my-6'>
+        <CumulativeCaptureAllLotsTotal12 />
+      </div>
+
+      <div className='my-6'>
+        <Cover50YearsOfCarbonOffsets />
       </div>
     </div>
   );
