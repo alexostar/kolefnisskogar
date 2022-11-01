@@ -7,6 +7,7 @@ import CapturePerYearTotal12 from '@/components/charts/coverstorycharts/CaptureP
 import CumulativeCapturePerYearTotal12 from '@/components/charts/coverstorycharts/CumulativeCapturePerYearTotal12';
 import CumulativeCaptureAllLotsTotal12 from '@/components/charts/coverstorycharts/CumulativeCaptureAllLotsTotal12';
 import Cover50YearsOfCarbonOffsets from '@/components/charts/coverstorycharts/Cover50YearsOfCarbonOffsets';
+import Calc50YearsOfCarbonOffsets100Years from '@/components/charts/coverstorycharts/Calc50YearsOfCarbonOffsets100Years';
 
 export default function DetailedData() {
   return (
@@ -35,9 +36,11 @@ export default function DetailedData() {
       <div className='my-6'>
         <CumulativeCaptureAllLotsTotal12 />
       </div>
-
       <div className='my-6'>
         <Cover50YearsOfCarbonOffsets />
+      </div>
+      <div className='my-6'>
+        <Calc50YearsOfCarbonOffsets100Years />
       </div>
     </div>
   );
