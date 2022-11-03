@@ -67,7 +67,7 @@ export const data = {
   labels,
   datasets: [
     {
-      label: 'Losun (tonn)',
+      label: 'Kolefnisspor (tonn)',
       data: totalFootprint50Years.map((data) => data),
       fill: false,
       lineTension: 0.5,
@@ -92,10 +92,10 @@ export default function Calc50YearsOfCarbonOffsets100Years() {
     <>
       <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col'>
         <h1 className='text-xl sm:text-2x mb-2l'>
-          Uppsöfnuð binding (tonn) á 100 árum
+          <i>Kolefnisjöfnun</i> með skógrækt í 100 ár
         </h1>
         <p className='mb-2'>
-          50 skógræktarreitir með áætlaða 12 tonna CO
+          50 reitir með áætlaða 12 tonna CO
           <sub>2</sub> heildarbindingu á 50 árum
         </p>
 
