@@ -70,8 +70,8 @@ export default function CumulativeCaptureAllLotsTotal12() {
           Uppsöfnuð binding (tonn) á 50 árum
         </h1>
         <p className='mb-2'>
-          50 skógræktarreitir með áætlaða 12 tonna CO
-          <sub>2</sub> heildarbindingu
+          50 skógræktarreitir (1-50 ára) með áætlaða 12 tonna CO
+          <sub>2</sub> heildarbindingu á 50 árum
         </p>
 
         <div className='inline lg:hidden'>

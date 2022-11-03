@@ -6,6 +6,7 @@ import LineChart80 from '../LineScreen80.jsx';
 import { cumsum } from 'mathjs';
 
 const yearlyFootprint = 12;
+
 const offsetcapturePerYear = PercentageBaseline.map((data) => {
   return {
     age: data.age,
@@ -63,7 +64,7 @@ export const data = {
   labels,
   datasets: [
     {
-      label: 'Losun (tonn)',
+      label: 'Kolefnisspor (tonn)',
       data: cumulativeOffsetPerYear.map((data) => data),
       fill: false,
       lineTension: 0.5,

@@ -67,11 +67,10 @@ export default function CumulativeCapturePerYearTotal12() {
     <>
       <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col'>
         <h1 className='text-xl sm:text-2x mb-2l'>
-          Uppsöfnuð (cumulative) binding (tonn) á 50 árum
+          Uppsöfnuð binding (tonn) á 50 árum á einum reit
         </h1>
-        <p className='mb-2'>
-          Skógræktarreitur með áætlaða 12 tonna heildarbindingu CO<sub>2</sub>
-          -ígilda
+        <p className='mb-2 text-sm sm:text-base'>
+          Áætluð heidlarbinding: 12 tonn CO<sub>2</sub> á 50 árum
         </p>
         <div className='inline lg:hidden'>
           <LineChart80 options={options} data={data} />

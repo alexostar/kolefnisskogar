@@ -1,5 +1,5 @@
-import { PercentageBaseline100Years } from '../../data/PercentageBaseline100Years.js';
-import { PercentageBaseline } from '../../data/PercentageBaseline.js';
+import { PercentageBaseline100Years } from '../../data/percentageBaseline100Years.js';
+import { PercentageBaseline } from '../../data/percentageBaseline.js';
 import { cumsum } from 'mathjs';
 import LineChart50 from '../LineScreen50.jsx';
 import LineChart80 from '../LineScreen80.jsx';
@@ -18,6 +18,13 @@ for (let i = 0; i < 50; i++) {
 }
 
 const cumulativeCaptureAllLots = cumsum(cumulativeCapture);
+
+// Footprint for 50 years then stop
+const footprint50Years = Array(50).fill(yearlyFootprint);
+for (let i = 0; i < 50; i++) {
+  footprint50Years.push(0);
+}
+const totalFootprint50Years = cumsum(footprint50Years);
 
 import {
   Chart as ChartJS,
@@ -46,7 +53,7 @@ export const options = {
   aspectRatio: 2,
   plugins: {
     legend: {
-      display: false,
+      position: 'top',
     },
     title: {
       display: false,
@@ -59,6 +66,15 @@ const labels = PercentageBaseline100Years.map((data) => data.age);
 export const data = {
   labels,
   datasets: [
+    {
+      label: 'Losun (tonn)',
+      data: totalFootprint50Years.map((data) => data),
+      fill: false,
+      lineTension: 0.5,
+      borderColor: 'rgb(75,192,192)',
+      backgroundColor: 'rgba(75,192,192,0.4)',
+      pointRadius: 1,
+    },
     {
       label: 'Binding (tonn)',
       data: cumulativeCaptureAllLots.map((data) => data),

@@ -126,7 +126,7 @@ export const data = {
       pointRadius: 1,
     },
     {
-      label: 'Meðaltal',
+      label: 'Staðaltré',
       data: percentageAverage.map((data) => data.averagePercentage),
       fill: false,
       lineTension: 0.5,
@@ -142,10 +142,13 @@ export default function PercentageComparison() {
     <>
       <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col'>
         <h1 className='text-xl sm:text-2x mb-2l'>
-          Prósent binding af heildarbindingu á 50 árum
+          Árleg binding í prósentum af heildarbindingu á 50 árum
         </h1>
-        <p className='mb-2'>
-          Meðaltal fyir ösp, stafafuru, sitkagreni, birki og (A,N) lerki
+        <p className=' text-sm sm:text-base'>
+          Meðaltal fyrir ösp, stafafuru, sitkagreni, birki og lerki
+        </p>
+        <p className='mb-2 text-sm sm:text-base'>
+          Staðaltré: Meðaltal fyrir alla ársfjórðunga
         </p>
         <div className='inline lg:hidden'>
           <LineChart80 options={options} data={data} />

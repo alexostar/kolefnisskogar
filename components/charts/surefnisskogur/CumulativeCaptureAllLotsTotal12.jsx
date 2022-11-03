@@ -1,7 +1,23 @@
-import { CaptureData } from '../data/average-person-12-ton-100-years.js';
+import { SurefnisskogurData } from '../../data/surefnisskogurData.js';
+import { cumsum } from 'mathjs';
+import LineChart50 from '../LineScreen50.jsx';
+import LineChart80 from '../LineScreen80.jsx';
 
-import LineChart50 from './LineScreen50.jsx';
-import LineChart80 from './LineScreen80.jsx';
+const surefnisskogurPercentageBaseline = SurefnisskogurData.map(
+  (data) => (data.medaltal * 100) / 380
+);
+
+// Binding data
+const yearlyFootprint = 12;
+const capturePerYear = surefnisskogurPercentageBaseline.map(
+  (data) => (data * yearlyFootprint) / 100
+);
+const cumulativeCapturePerYear = cumsum(capturePerYear);
+const cumulativeCaptureAllLots = cumsum(cumulativeCapturePerYear);
+
+// Offset data
+const yearlyOffset = Array(50).fill(yearlyFootprint);
+const cumulatedOffset = cumsum(yearlyOffset);
 
 import {
   Chart as ChartJS,
@@ -39,14 +55,13 @@ export const options = {
   },
 };
 
-const labels = CaptureData.map((data) => data.age100);
-
+const labels = SurefnisskogurData.map((data) => data.aldur);
 export const data = {
   labels,
   datasets: [
     {
-      label: 'Losun (tonn)',
-      data: CaptureData.map((data) => data.cumulativeRelease),
+      label: 'Kolefnisspor (tonn)',
+      data: cumulatedOffset.map((data) => data),
       fill: false,
       lineTension: 0.5,
       borderColor: 'rgb(75,192,192)',
@@ -54,9 +69,9 @@ export const data = {
       pointRadius: 1,
     },
     {
-      data: CaptureData.map((data) => data.cumumlativeCapture),
       label: 'Binding (tonn)',
-      fill: true,
+      data: cumulativeCaptureAllLots.map((data) => data),
+      fill: false,
       lineTension: 0.5,
       borderColor: 'rgb(75,72,192)',
       backgroundColor: 'rgba(75,72,192,0.4)',
@@ -65,16 +80,14 @@ export const data = {
   ],
 };
 
-export default function CaptureRelease100Years() {
+export default function CumulativeCaptureAllLotsTotal12() {
   return (
     <>
       <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col'>
-        <h1 className='text-xl sm:text-2xl'>
-          <i>Kolefnisjöfnun</i> með skógrækt í 100 ár
+        <h1 className='text-xl sm:text-2x mb-2l'>
+          <i>Kolefnisjöfnun</i> í Súrefnisskógi í 50 ár
         </h1>
-        <p className='mb-2'>
-          Kolefnisspori og nýrri skógrækt lýkur eftir 50 ár
-        </p>
+
         <div className='inline lg:hidden'>
           <LineChart80 options={options} data={data} />
         </div>

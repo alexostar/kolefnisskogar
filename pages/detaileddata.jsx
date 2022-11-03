@@ -6,8 +6,8 @@ import PercentageComparison from '@/components/charts/basicdatacharts/Percentage
 import CapturePerYearTotal12 from '@/components/charts/coverstorycharts/CapturePerYearTotal12';
 import CumulativeCapturePerYearTotal12 from '@/components/charts/coverstorycharts/CumulativeCapturePerYearTotal12';
 import CumulativeCaptureAllLotsTotal12 from '@/components/charts/coverstorycharts/CumulativeCaptureAllLotsTotal12';
-import Cover50YearsOfCarbonOffsets from '@/components/charts/coverstorycharts/Cover50YearsOfCarbonOffsets';
 import Calc50YearsOfCarbonOffsets100Years from '@/components/charts/coverstorycharts/Calc50YearsOfCarbonOffsets100Years';
+import Cover50YearsOfCarbonOffsets from '@/components/charts/coverstorycharts/Cover50YearsOfCarbonOffsets';
 
 export default function DetailedData() {
   return (

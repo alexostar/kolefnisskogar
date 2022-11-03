@@ -107,10 +107,13 @@ export default function AusturlandBasicChart() {
     <>
       <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col'>
         <h1 className='text-xl sm:text-2x mb-2l'>
-          Aldur og áætluð árleg binding (tonn) í 50 ár
+          Áætluð árleg binding (tonn/ha) í 50 ár
         </h1>
-        <p className='mb-2'>
-          Svæði: Austurland, Fljótsdalshérað, Hérað (vel gróið, áborið)
+        <p className='text-sm sm:text-base'>
+          Svæði: Austurland, Fljótsdalshérað, Hérað
+        </p>
+        <p className='mb-2 text-sm sm:text-base'>
+          (Vel gróið, áborið, hæð 0-150m)
         </p>
         <div className='inline lg:hidden'>
           <LineChart80 options={options} data={data} />

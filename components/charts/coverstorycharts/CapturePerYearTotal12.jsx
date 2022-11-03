@@ -64,10 +64,11 @@ export default function CapturePerYearTotal12() {
     <>
       <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col'>
         <h1 className='text-xl sm:text-2x mb-2l'>
-          Aldur trjáa og árleg binding
+          Árleg binding <i>staðaltrés</i> í prósentum af heildarbindingu á 50
+          árum
         </h1>
-        <p className='mb-2'>
-          Áætluð heidlarbinding 12 tonn CO<sub>2</sub> á 50 árum
+        <p className='mb-2 text-sm sm:text-base'>
+          Áætluð heidlarbinding: 12 tonn CO<sub>2</sub> á 50 árum
         </p>
         <div className='inline lg:hidden'>
           <LineChart80 options={options} data={data} />

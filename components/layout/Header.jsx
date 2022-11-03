@@ -43,26 +43,27 @@ export default function Header() {
               </Link>
             </li>
 
-            {!loggedIn ? (
-              <BiLogIn
-                className='text-2xl text-slate-900 hidden md:inline cursor-pointer hover:text-orange-600'
-                onClick={() => router.push('/users/log-in')}
-              />
-            ) : (
-              <>
-                <li className='hidden md:inline cursor-pointer hover:text-orange-600'>
-                  <Link href='/mynotes/create'>
-                    <a>Ábendingar</a>
-                  </Link>
-                </li>
-
-                <BiLogOut
+            <div className='hidden'>
+              {!loggedIn ? (
+                <BiLogIn
                   className='text-2xl text-slate-900 hidden md:inline cursor-pointer hover:text-orange-600'
-                  onClick={() => router.push('/users/log-out')}
+                  onClick={() => router.push('/users/log-in')}
                 />
-              </>
-            )}
+              ) : (
+                <>
+                  <li className='hidden md:inline cursor-pointer hover:text-orange-600'>
+                    <Link href='/mynotes/create'>
+                      <a>Ábendingar</a>
+                    </Link>
+                  </li>
 
+                  <BiLogOut
+                    className='text-2xl text-slate-900 hidden md:inline cursor-pointer hover:text-orange-600'
+                    onClick={() => router.push('/users/log-out')}
+                  />
+                </>
+              )}
+            </div>
             {!menuOpen && (
               <HiMenu
                 className='text-3xl text-slate-900 md:hidden cursor-pointer hover:text-orange-600'
@@ -98,15 +99,17 @@ export default function Header() {
                   </Link>
                 </li>
 
-                <li className='my-2 mr-3 text-lg flex flex-col items-end'>
-                  <Link href='/mynotes/create'>
-                    <a
-                      onClick={() => setMenuOpen(false)}
-                      className='cursor-pointer hover:text-orange-600'>
-                      Ábendingar
-                    </a>
-                  </Link>
-                </li>
+                <div className='hidden'>
+                  <li className=' my-2 mr-3 text-lg flex flex-col items-end'>
+                    <Link href='/mynotes/create'>
+                      <a
+                        onClick={() => setMenuOpen(false)}
+                        className='cursor-pointer hover:text-orange-600'>
+                        Ábendingar
+                      </a>
+                    </Link>
+                  </li>
+                </div>
 
                 <li className='my-2 mr-3 text-lg flex flex-col items-end'>
                   <Link href='/about'>
@@ -118,25 +121,27 @@ export default function Header() {
                   </Link>
                 </li>
 
-                <li className='my-2 mr-3 text-lg flex flex-col items-end'>
-                  {!loggedIn ? (
-                    <Link href='/users/log-in'>
-                      <a
-                        onClick={() => setMenuOpen(false)}
-                        className='cursor-pointer hover:text-orange-600'>
-                        Innskráning
-                      </a>
-                    </Link>
-                  ) : (
-                    <Link href='/users/log-out'>
-                      <a
-                        onClick={() => setMenuOpen(false)}
-                        className='cursor-pointer hover:text-orange-600'>
-                        Útskráning
-                      </a>
-                    </Link>
-                  )}
-                </li>
+                <div className='hidden'>
+                  <li className=' my-2 mr-3 text-lg flex flex-col items-end'>
+                    {!loggedIn ? (
+                      <Link href='/users/log-in'>
+                        <a
+                          onClick={() => setMenuOpen(false)}
+                          className='cursor-pointer hover:text-orange-600'>
+                          Innskráning
+                        </a>
+                      </Link>
+                    ) : (
+                      <Link href='/users/log-out'>
+                        <a
+                          onClick={() => setMenuOpen(false)}
+                          className='cursor-pointer hover:text-orange-600'>
+                          Útskráning
+                        </a>
+                      </Link>
+                    )}
+                  </li>
+                </div>
               </ul>
             )}
           </div>

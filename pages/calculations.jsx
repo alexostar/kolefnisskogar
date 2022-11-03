@@ -1,9 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import CaptureAgeAndYears from '../components/charts/CaptureAgeAndYears';
-import CumulativeCaptureAgeAndYears from '../components/charts/CumulativeCaptureAgeAndYears';
-import CumulativeCapture50Lots from '../components/charts/CumulativeCapture50Lots';
-import CaptureRelease100Years from '../components/charts/CaptureRelease100Years.jsx';
+import Calc50YearsOfCarbonOffsets100Years from '@/components/charts/coverstorycharts/Calc50YearsOfCarbonOffsets100Years';
+import CapturePerYearTotal12 from '@/components/charts/coverstorycharts/CapturePerYearTotal12';
+import CumulativeCapturePerYearTotal12 from '@/components/charts/coverstorycharts/CumulativeCapturePerYearTotal12';
+import CumulativeCaptureAllLotsTotal12 from '@/components/charts/coverstorycharts/CumulativeCaptureAllLotsTotal12';
+
+//Standardtree charts
+import SudurlandBasicChart from '@/components/charts/basicdatacharts/SudurlandBasicChart';
+import AusturlandBasicChart from '@/components/charts/basicdatacharts/AusturlandBasicChart';
+import NordurlandBasicChart from '@/components/charts/basicdatacharts/NordurlandBasicChart';
+import VesturlandBasicChart from '@/components/charts/basicdatacharts/VesturlandBasicChart';
+import PercentageComparison from '@/components/charts/basicdatacharts/PercentageComparison';
 
 export default function Calculations() {
   return (
@@ -38,7 +45,7 @@ export default function Calculations() {
         kolefnishlutleysi fimm áratugum eftir að hafa tekið sitt síðasta skref!
       </p>
       <div className='my-3'>
-        <CaptureRelease100Years />
+        <Calc50YearsOfCarbonOffsets100Years />
       </div>
       <div className='w-full'>
         <h2 className='my-3 text-xl sm:text-2xl font-bold text-left'>
@@ -51,18 +58,10 @@ export default function Calculations() {
           Skógarkolefnisreikni
         </a>{' '}
         Skógræktarinnar. Reiknirinn er forrit sem aðstoðar við að gróflega meta
-        mögulega kolefnisbindingu nýskógræktar.
-      </p>
-      <p className='my-3 text-base sm:text-lg'>
-        Fyrst voru þessi gögn notuð til að reikna áætlaða bindingu{' '}
-        <i>staðaltrés</i> á hverju ári í prósentum af heildarbindingu þess á 50
-        árum. Staðaltréð er hér skilgreint sem 30% birki, 20% stafafura, 20%
-        sitkagreni, 15% ösp og 15% lerki. Þessa skilgreiningu á staðaltré notar
-        til dæmis{' '}
-        <a href='https://kolvidur.is/' className='text-blue-700'>
-          Kolviður
-        </a>{' '}
-        í samningum sínum við kaupendur kolefnisbindingar.
+        mögulega kolefnisbindingu nýskógræktar. Tölur frá öllum ársfjórðungum
+        voru notaðar til að reikna árlega bindingu <i>staðaltrés</i> í prósentum
+        af heildarbindingu á 50 árum. Sjá nánar um <i>staðaltré</i> neðar á
+        þessari síðu.
       </p>
       <p className='my-3 text-base sm:text-lg'>
         Á línuritinu hér að neðan eru svo þessar prósentutölur notaðar til að
@@ -71,22 +70,17 @@ export default function Calculations() {
         <sub>2</sub>.
       </p>
       <div className='my-3'>
-        <CaptureAgeAndYears />
+        <CapturePerYearTotal12 />
       </div>
       <p className='my-3 text-base sm:text-lg'>
         Hugtakið staðaltré er notað hér til að fá grófa heildarmynd af
-        kolefnisbindingu í skógrækt. Ef líta ætti til einstakra verkefna væri
-        hægt að breyta hlutfalli trjátegunda í samræmi við hvaða tegundir eru
-        notaðar í hverju verkefni fyrir sig. Ef meira er notað af ösp næði t.d.
-        kúrvan hámarki fyrr og ef meira er notað af sitkagreni næði hún hámarki
-        seinna, en það breytir þó ekki heildarmyndinni mikið.
-      </p>
-      <p className='my-3 text-base sm:text-lg'>
-        Sama er að segja um mismunandi landgerðir og staðsetningu á landinu. Þó
-        lerkinu sé sleppt í sunnlenskri skógrækt breytist útlit
-        prósentukúrfunnar ekki mikið. Og þó mikill munur geti verið á
-        heildarbindingu á hektara breytist prósentukúrvan ekki það mikð að
-        heildarmyndin breytist.
+        kolefnisbindingu í skógrækt. Við úttekt á einstökum verkefnum verður
+        notast við gögn á Skógarkolefnisreikninum í samræmi við hvaða tegundir
+        eru notaðar og staðsetningu á landinu. Ef meira er notað af ösp næði
+        t.d. kúrvan hámarki fyrr og ef meira er notað af sitkagreni næði hún
+        hámarki seinna, en það breytir þó ekki heildarmyndinni mikið. Og þó
+        mikill munur geti verið á heildarbindingu á hektara breytist
+        prósentukúrvan ekki það mikð að heildarmyndin breytist.
       </p>
       <p className='my-3 text-base sm:text-lg'>
         Til að áætla heildarbindingu trjánna á hverjum aldri var svo reiknuð
@@ -97,7 +91,7 @@ export default function Calculations() {
         línuritinu hér fyrir neðan.
       </p>
       <div className='my-3'>
-        <CumulativeCaptureAgeAndYears />
+        <CumulativeCapturePerYearTotal12 />
       </div>
       <p className='my-3 text-base sm:text-lg'>
         Að 50 árum liðnum eru skógræktarreitirnir orðnir 50, - einn sem búinn er
@@ -108,7 +102,7 @@ export default function Calculations() {
         umfram bindingu.
       </p>
       <div className='my-3'>
-        <CumulativeCapture50Lots />
+        <CumulativeCaptureAllLotsTotal12 />
       </div>
       <p className='mt-3 mb-6 text-base sm:text-lg'>
         Hafðu samband{' '}
@@ -119,6 +113,27 @@ export default function Calculations() {
         forsendur sem ég gef mér, eða ef þú villt koma einhverju öðru á framfæri
         í þessu samhengi.
       </p>
+      <div className='w-full'>
+        <h2 className='my-3 text-xl sm:text-2xl font-bold text-left'>
+          Staðaltré
+        </h2>
+      </div>
+
+      <div className='my-6'>
+        <SudurlandBasicChart />
+      </div>
+      <div className='my-6'>
+        <AusturlandBasicChart />
+      </div>
+      <div className='my-6'>
+        <NordurlandBasicChart />
+      </div>
+      <div className='my-6'>
+        <VesturlandBasicChart />
+      </div>
+      <div className='my-6'>
+        <PercentageComparison />
+      </div>
     </div>
   );
 }

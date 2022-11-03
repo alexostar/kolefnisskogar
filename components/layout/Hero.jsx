@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import CaptureRelease50YearsCover from '../charts/CaptureRelease50YearsCover';
+import Cover50YearsOfCarbonOffsets from '@/components/charts/coverstorycharts/Cover50YearsOfCarbonOffsets';
 
 export default function Hero() {
   return (
@@ -64,12 +64,12 @@ export default function Hero() {
 
         <p className='my-3'>
           Ef hann breytir engu í sínum lífsstíl er kolefnisspor hans árið 2040
-          orðið um 216 tonn á meðan skógurinn hefur aðeins bundið um 18 tonn,
-          eða rúmlega 7% af heildarlosuninni. Eftir 50 ár er kolefnisskuld hans
-          orðin um 340 tonn.
+          orðið um 216 tonn á meðan skógurinn hefur aðeins bundið tæp 15 tonn,
+          eða tæplega 7% af heildarlosuninni. Eftir 50 ár er kolefnisskuld hans
+          orðin um 356 tonn.
         </p>
         <div className='w-full flex justify-center'>
-          <CaptureRelease50YearsCover />
+          <Cover50YearsOfCarbonOffsets />
         </div>
 
         <p className='my-3'>
