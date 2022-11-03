@@ -104,7 +104,7 @@ export default function SudurlandBasicChart() {
           Svæði: Uppsveitir Suðurlands - vestan Laugarvatns
         </p>
         <p className='mb-2 text-sm sm:text-base'>
-          (Vel gróið, áborið, hæð 0-150m)
+          (Vel gróið, áborið, hæð 150-250m)
         </p>
         <div className='inline lg:hidden'>
           <LineChart80 options={options} data={data} />
