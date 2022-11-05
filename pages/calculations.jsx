@@ -44,7 +44,7 @@ export default function Calculations() {
         mun árframhaldandi vöxtur trjánna sjá til að hann loksins nær
         kolefnishlutleysi fimm áratugum eftir að hafa tekið sitt síðasta skref!
       </p>
-      <div className='my-3'>
+      <div className='w-full flex justify-center my-3'>
         <Calc50YearsOfCarbonOffsets100Years />
       </div>
       <div className='w-full'>
@@ -69,7 +69,7 @@ export default function Calculations() {
         50 árum er 12 tonn CO
         <sub>2</sub>.
       </p>
-      <div className='my-3'>
+      <div className='w-full flex justify-center my-3'>
         <CapturePerYearTotal12 />
       </div>
       <p className='my-3 text-base sm:text-lg'>
@@ -90,7 +90,7 @@ export default function Calculations() {
         hún orðin <i>a + b</i>, þriðja árið <i>a + b + c</i> eins og sjá má á
         línuritinu hér fyrir neðan.
       </p>
-      <div className='my-3'>
+      <div className='w-full flex justify-center my-3'>
         <CumulativeCapturePerYearTotal12 />
       </div>
       <p className='my-3 text-base sm:text-lg'>
@@ -101,7 +101,7 @@ export default function Calculations() {
         tíma er þessi einstaklingur búinn að losa um 600 tonn eða 339 tonn
         umfram bindingu.
       </p>
-      <div className='my-3'>
+      <div className='w-full flex justify-center my-3'>
         <CumulativeCaptureAllLotsTotal12 />
       </div>
       <p className='mt-3 mb-6 text-base sm:text-lg'>
@@ -119,19 +119,19 @@ export default function Calculations() {
         </h2>
       </div>
 
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <SudurlandBasicChart />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <AusturlandBasicChart />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <NordurlandBasicChart />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <VesturlandBasicChart />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <PercentageComparison />
       </div>
     </div>

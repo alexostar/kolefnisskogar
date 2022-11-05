@@ -1,5 +1,5 @@
 import { NordurlandData } from '../../data/nordurlanddata.js';
-import LineChart50 from '../LineScreen50.jsx';
+import LineChart from '../LineChart.jsx';
 import LineChart80 from '../LineScreen80.jsx';
 
 import {
@@ -105,7 +105,7 @@ export const data = {
 export default function NordurlandBasicChart() {
   return (
     <>
-      <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col'>
+      <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col w-full'>
         <h1 className='text-xl sm:text-2x mb-2l'>
           Áætluð árleg binding (tonn/ha) í 50 ár
         </h1>
@@ -119,7 +119,7 @@ export default function NordurlandBasicChart() {
           <LineChart80 options={options} data={data} />
         </div>
         <div className='hidden lg:inline'>
-          <LineChart50 options={options} data={data} />
+          <LineChart options={options} data={data} />
         </div>
       </div>
     </>

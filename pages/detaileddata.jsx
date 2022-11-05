@@ -12,34 +12,34 @@ import Cover50YearsOfCarbonOffsets from '@/components/charts/coverstorycharts/Co
 export default function DetailedData() {
   return (
     <div className='flex flex-col max-w-4xl items-center py-2 px-4'>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <SudurlandBasicChart />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <AusturlandBasicChart />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <NordurlandBasicChart />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <VesturlandBasicChart />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <PercentageComparison />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <CapturePerYearTotal12 />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <CumulativeCapturePerYearTotal12 />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <CumulativeCaptureAllLotsTotal12 />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <Cover50YearsOfCarbonOffsets />
       </div>
-      <div className='my-6'>
+      <div className='w-full flex justify-center my-3'>
         <Calc50YearsOfCarbonOffsets100Years />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { PercentageBaseline } from '../../data/percentageBaseline.js';
 import { cumsum } from 'mathjs';
-import LineChart50 from '../LineScreen50.jsx';
+import LineChart from '../LineChart.jsx';
 import LineChart80 from '../LineScreen80.jsx';
 
 const yearlyFootprint = 12;
@@ -65,7 +65,7 @@ export const data = {
 export default function CumulativeCapturePerYearTotal12() {
   return (
     <>
-      <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col'>
+      <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col w-full'>
         <h1 className='text-xl sm:text-2x mb-2l'>
           Uppsöfnuð binding (tonn) á 50 árum á einum reit
         </h1>
@@ -76,7 +76,7 @@ export default function CumulativeCapturePerYearTotal12() {
           <LineChart80 options={options} data={data} />
         </div>
         <div className='hidden lg:inline'>
-          <LineChart50 options={options} data={data} />
+          <LineChart options={options} data={data} />
         </div>
       </div>
     </>
