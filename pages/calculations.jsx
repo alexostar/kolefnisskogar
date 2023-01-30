@@ -37,11 +37,11 @@ export default function Calculations() {
           <a className='text-blue-700'>forsíðu þessa vefs</a>
         </Link>{' '}
         um einstaklinginn sem árlega í 50 ár kaupir nýjan <i>skógræktarpakka</i>{' '}
-        þar sem áætluð heidarbinding á hverjum nýjum reit samsvarar árlegu
+        þar sem áætluð heildarbinding á hverjum nýjum reit samsvarar árlegu
         kolefnisspori hans (12 tonn CO
         <sub>2</sub>-ígildi). Ef við gerum ráð fyrir að kolefnisspori hans á
         þessari jörð ljúki eftir þessi 50 ár, og þar með kaupum á nýskógrækt,
-        mun árframhaldandi vöxtur trjánna sjá til að hann loksins nær
+        mun áframhaldandi vöxtur trjánna sjá til að hann loksins nær
         kolefnishlutleysi fimm áratugum eftir að hafa tekið sitt síðasta skref!
       </p>
       <div className='w-full flex justify-center my-3'>

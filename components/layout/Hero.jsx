@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Cover50YearsOfCarbonOffsets from '@/components/charts/coverstorycharts/Cover50YearsOfCarbonOffsets';
+import SurefniBill50Years from '@/components/charts/coverstorycharts/SurefniBIll50Yerars';
 
 export default function Hero() {
   return (
@@ -55,7 +55,7 @@ export default function Hero() {
         </p>
 
         <p className='my-3'>
-          Tökum sem dæni einstakling sem árið 2022 hyggst byrja að kolefnisjafna
+          Tökum sem dæmi einstakling sem árið 2022 hyggst byrja að kolefnisjafna
           sitt líf með áskrift að árlegri nýskógrækt. Honum stendur til boða að
           kaupa <i>skógræktarpakka</i> þar sem áætluð 50 ára binding skógarins
           nemur árlegu kolefnisspori hans, um 12 tonn CO<sub>2</sub>
@@ -69,7 +69,7 @@ export default function Hero() {
           orðin um 356 tonn.
         </p>
         <div className='w-full flex justify-center'>
-          <Cover50YearsOfCarbonOffsets />
+          <SurefniBill50Years />
         </div>
 
         <p className='my-3'>

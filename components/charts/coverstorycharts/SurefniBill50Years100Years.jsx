@@ -1,20 +1,23 @@
-// THe following first import is only used for the labels
-import { PercentageBaseline100Years } from '../../data/percentageBaseline100Years.js';
-import { PercentageBaseline } from '../../data/percentageBaseline.js';
+import { SurefnisskogurData } from '../../data/surefni-osp-greni-base.js';
+// THe following import is only used for the labels
+import { SurefnisskogurData100Years } from '../../data/surefni-osp-greni-base-100years.js';
+import LineChartFullSize from '../LineChartFullSize';
 import { cumsum } from 'mathjs';
-import LineChart from '../LineChart.jsx';
-import LineChart80 from '../LineScreen80.jsx';
 
 // Start by adding the carbon footprint
-const yearlyFootprint = 12;
+const yearlyFootprint = 1.6;
 
-// Create an array of objects with capture and offset per year
-const capturePerYearFirst50 = PercentageBaseline.map(
-  (data) => (data.averagePercentage * yearlyFootprint) / 100
-);
+// Create an array of objects with capture and offset per year for first 50 years
+const capturePerYearFirst50 = SurefnisskogurData.map((data) => {
+  return {
+    age: data.aldur,
+    capture: (data.percentage * yearlyFootprint) / 100,
+    offset: yearlyFootprint,
+  };
+});
 
-//An array with cumulative capture
-const cumulativeCapture = cumsum(capturePerYearFirst50);
+const capture = capturePerYearFirst50.map((data) => data.capture);
+const cumulativeCapture = cumsum(capture);
 
 for (let i = 0; i < 50; i++) {
   cumulativeCapture.push(yearlyFootprint - cumulativeCapture[i]);
@@ -67,12 +70,13 @@ export const options = {
   },
 };
 
-const labels = PercentageBaseline100Years.map((data) => data.age);
+const labels = SurefnisskogurData100Years.map((data) => data.aldur);
+
 export const data = {
   labels,
   datasets: [
     {
-      label: 'Kolefnisspor (tonn)',
+      label: 'Losun (tonn koldíoxíð)',
       data: totalFootprint50Years.map((data) => data),
       fill: true,
       lineTension: 0.5,
@@ -81,7 +85,7 @@ export const data = {
       pointRadius: 1,
     },
     {
-      label: 'Binding (tonn)',
+      label: 'Binding (tonn koldíoxíð)',
       data: cumulativeCaptureAllLots.map((data) => data),
       fill: true,
       lineTension: 0.5,
@@ -92,16 +96,11 @@ export const data = {
   ],
 };
 
-export default function Calc50YearsOfCarbonOffsets100Years() {
+export default function SurefniBill50Years100Years() {
   return (
     <>
-      <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col w-full'>
-        <div className='inline lg:hidden'>
-          <LineChart80 options={options} data={data} />
-        </div>
-        <div className='hidden lg:inline'>
-          <LineChart options={options} data={data} />
-        </div>
+      <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col w-full h-auto '>
+        <LineChartFullSize options={options} data={data} />
       </div>
     </>
   );

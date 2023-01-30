@@ -56,7 +56,7 @@ export default function List() {
           <a
             href='https://landlifecompany.com/projects/iceland/'
             className='text-blue-700'>
-            Land Live (Iceland)
+            Land Life (Iceland)
           </a>
         </li>
         <li>
