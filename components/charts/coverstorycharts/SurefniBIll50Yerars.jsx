@@ -4,7 +4,7 @@ import LineChart80 from '../LineScreen80.jsx';
 
 import { cumsum } from 'mathjs';
 
-const yearlyFootprint = 1.6;
+const yearlyFootprint = 12;
 
 const offsetcapturePerYear = SurefnisskogurData.map((data) => {
   return {

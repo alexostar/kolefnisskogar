@@ -1,45 +1,35 @@
-import { SurefnisskogurData } from '../../data/surefni-osp-greni-base.js';
+import { Capture50Years } from '../../data/capture-50-years.js';
+import LineChartFullSize from '../LineChartFullSize';
 // THe following import is only used for the labels
 import { SurefnisskogurData100Years } from '../../data/surefni-osp-greni-base-100years.js';
-import LineChartFullSize from '../LineChartFullSize';
 import { cumsum } from 'mathjs';
 
 // Start by adding the carbon footprint
 const yearlyFootprint = 12;
 
 // Create an array of objects with capture and offset per year for first 50 years
-const capturePerYearFirst50 = SurefnisskogurData.map((data) => {
+const capturePerYear = Capture50Years.map((data) => {
   return {
     age: data.aldur,
     capture: (data.percentage * yearlyFootprint) / 100,
-    offset: yearlyFootprint,
-    loss: 0,
   };
 });
 
-// Create an array with cumulative capture on a single lot for f50 years
-const capture = capturePerYearFirst50.map((data) => data.capture);
+// Create an array with cumulative capture on a single lot in 50 years
+const capture = capturePerYear.map((data) => data.capture);
 const cumulativeCapture = cumsum(capture);
 
-// Add fifty years to the array
-// This is genious - for each year the cumulative capture becomnes less
-// as more and more lots come closer to 50 years
 for (let i = 0; i < 50; i++) {
-  cumulativeCapture.push(yearlyFootprint - cumulativeCapture[i]);
+  cumulativeCapture.push(
+    yearlyFootprint - cumulativeCapture[i] - yearlyFootprint * 0.8
+  );
 }
 const cumulativeCaptureAllLots = cumsum(cumulativeCapture);
 
-// How can I reduce the cumulative capture to account for losses after 50 years?
-// Loss every year after 50 is (yearlyFootprint * 0.9) / 50
-
-const yearlyLossAfter50 = (yearlyFootprint * 0.9) / 50;
-
 // Footprint for 50 years then no more footprint for the next 50 yeas
-const footprint50Years = Array(50).fill(yearlyFootprint);
-for (let i = 0; i < 50; i++) {
-  footprint50Years.push(0);
-}
-const totalFootprint50Years = cumsum(footprint50Years);
+const footprint100Years = Array(100).fill(0);
+footprint100Years.fill(yearlyFootprint, 0, 50);
+const totalFootprint100Years = cumsum(footprint100Years);
 
 import {
   Chart as ChartJS,
@@ -86,7 +76,7 @@ export const data = {
   datasets: [
     {
       label: 'Losun (tonn koldíoxíð)',
-      data: totalFootprint50Years.map((data) => data),
+      data: totalFootprint100Years.map((data) => data),
       fill: true,
       lineTension: 0.5,
       borderColor: 'rgb(rgb(255, 165, 0)',

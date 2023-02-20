@@ -1,58 +1,42 @@
-import { SurefnisskogurData } from '../../data/surefni-osp-greni-base.js';
+import { Capture50Years } from '../../data/capture-50-years.js';
+import LineChartFullSize from '../LineChartFullSize';
 // THe following import is only used for the labels
 import { SurefnisskogurData100Years } from '../../data/surefni-osp-greni-base-100years.js';
-import LineChartFullSize from '../LineChartFullSize';
 import { cumsum } from 'mathjs';
 
 // Start by adding the carbon footprint
 const yearlyFootprint = 12;
 
 // Create an array of objects with capture and offset per year for first 50 years
-const capturePerYearFirst50 = SurefnisskogurData.map((data) => {
+const capturePerYear = Capture50Years.map((data) => {
   return {
     age: data.aldur,
     capture: (data.percentage * yearlyFootprint) / 100,
-    offset: yearlyFootprint,
   };
 });
 
-const capture = capturePerYearFirst50.map((data) => data.capture);
+// Create an array with cumulative capture on a single lot in 50 years
+const capture = capturePerYear.map((data) => data.capture);
+for (let i = 0; i < 50; i++) {
+  capture.push(-yearlyFootprint / 29);
+}
+
 const cumulativeCapture = cumsum(capture);
 
-// Deactivate temporarily
-for (let i = 0; i < 50; i++) {
-  cumulativeCapture.push(yearlyFootprint - cumulativeCapture[i]);
-}
-
 /*
-TEST 50% lost to the air after 50 years
 for (let i = 0; i < 50; i++) {
-  cumulativeCapture.push(yearlyFootprint - cumulativeCapture[i] - 6);
+  cumulativeCapture.push(yearlyFootprint / 2);
 }
 */
 
-/*
-TEST 50% lost to the air in 50 years after year 50
-for (let i = 0; i < 50; i++) {
-  cumulativeCapture.push(yearlyFootprint - cumulativeCapture[i] - 0.12 * i);
-}
-*/
-
-/*
-TEST 50% lost to the air in 50 years after year 50
-for (let i = 0; i < 50; i++) {
-  cumulativeCapture.push(yearlyFootprint - cumulativeCapture[i] - 0.3 * i);
-}
-*/
-
+//console.log(cumulativeCapture);
 const cumulativeCaptureAllLots = cumsum(cumulativeCapture);
+//console.log(cumulativeCaptureAllLots);
 
-// Footprint for 50 years then stop
-const footprint50Years = Array(50).fill(yearlyFootprint);
-for (let i = 0; i < 50; i++) {
-  footprint50Years.push(0);
-}
-const totalFootprint50Years = cumsum(footprint50Years);
+// Footprint for 50 years then no more footprint for the next 50 yeas
+const footprint100Years = Array(100).fill(0);
+footprint100Years.fill(yearlyFootprint, 0, 50);
+const totalFootprint100Years = cumsum(footprint100Years);
 
 import {
   Chart as ChartJS,
@@ -98,8 +82,8 @@ export const data = {
   labels,
   datasets: [
     {
-      label: 'Losun (tonn koltvísýringur)',
-      data: totalFootprint50Years.map((data) => data),
+      label: 'Losun (tonn koldíoxíð)',
+      data: totalFootprint100Years.map((data) => data),
       fill: true,
       lineTension: 0.5,
       borderColor: 'rgb(rgb(255, 165, 0)',
@@ -107,7 +91,7 @@ export const data = {
       pointRadius: 1,
     },
     {
-      label: 'Binding (tonn koltvísýringur)',
+      label: 'Binding (tonn koldíoxíð)',
       data: cumulativeCaptureAllLots.map((data) => data),
       fill: true,
       lineTension: 0.5,
@@ -118,7 +102,7 @@ export const data = {
   ],
 };
 
-export default function SurefniBill50Years100Years() {
+export default function Footprint50AnotherTest() {
   return (
     <>
       <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col w-full h-auto '>

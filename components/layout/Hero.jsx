@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import SurefniBill50Years from '@/components/charts/coverstorycharts/SurefniBIll50Yerars';
+import Footprint50Capture100Baseline from '@/components/charts/february2023charts/Footprint50Capture100Baseline';
+import Footprint50Capture100Example1 from '@/components/charts/february2023charts/Footprint50Capture100Example1';
+import Footprint50Capture100Example2 from '@/components/charts/february2023charts/Footprint50Capture100Example2';
 
 export default function Hero() {
   return (
@@ -24,36 +27,6 @@ export default function Hero() {
       </div>
 
       <div className='container mx-auto max-w-4xl flex flex-col items-start px-4 text-lg sm:text-xl'>
-        <p className='mt-1 mb-3'>
-          <a
-            href='https://www.stjornarradid.is/library/02-Rit--skyrslur-og-skrar/Adgerdaaetlun%20i%20loftslagsmalum%20onnur%20utgafa.pdf'
-            className='text-blue-700'>
-            Aðgerðaáætlun stjórnvalda í loftslagsmálum
-          </a>{' '}
-          er ætlað að stuðla að samdrætti í losun gróðurhúsalofttegunda og
-          leggja grunninn að markmiði stjórnvalda um kolefnishlutleysi Íslands
-          árið 2040. Í áætlunni er gert ráð fyrir að stórauka skógrækt til
-          kolefnisbindingar.
-        </p>
-        <p className='my-3'>
-          Í dag <i>kolefnisjafna</i> mörg fyrirtæki vörur sínar og þjónustu. Oft
-          felst kolefnisjöfnunin í nýskógrækt þar sem áætluð kolefnisbinding á
-          öllum vaxtartíma trjánna samsvarar losunni sem á að bæta fyrir. Það er
-          ekki hægt að kalla kolefnisjöfnun!
-        </p>
-        <p className='my-3'>
-          Nýlega hafa sumir landeigendur sem bjóða upp á kolefnisbindingu tekið
-          upp vinnubrögð þar gróið land er brotið til skógræktar með stórvirkum
-          vinnuvélum og miklu jarðraski. Jarðraskið veldur kolefnislosun úr
-          jarðvegi sem sennilega mun yfirgnæfa bindingu trjánna í mörg ár.
-        </p>
-
-        <p className='my-3'>
-          Á þessum vef er ætlunin að skoða <i>kolefnisjöfnun</i> með skógrækt
-          nánar og hvernig bæði landeigendur og kaupendur á þjónustu þeirra nota
-          hugtakið til markaðssetningar.
-        </p>
-
         <p className='my-3'>
           Tökum sem dæmi einstakling sem árið 2022 hyggst byrja að kolefnisjafna
           sitt líf með áskrift að árlegri nýskógrækt. Honum stendur til boða að
@@ -70,6 +43,15 @@ export default function Hero() {
         </p>
         <div className='w-full flex justify-center'>
           <SurefniBill50Years />
+        </div>
+        <div className='w-full flex justify-center'>
+          <Footprint50Capture100Baseline />
+        </div>
+        <div className='w-full flex justify-center'>
+          <Footprint50Capture100Example1 />
+        </div>
+        <div className='w-full flex justify-center'>
+          <Footprint50Capture100Example2 />
         </div>
 
         <p className='my-3'>

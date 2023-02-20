@@ -19,31 +19,9 @@ const capturePerYearFirst50 = SurefnisskogurData.map((data) => {
 const capture = capturePerYearFirst50.map((data) => data.capture);
 const cumulativeCapture = cumsum(capture);
 
-// Deactivate temporarily
 for (let i = 0; i < 50; i++) {
   cumulativeCapture.push(yearlyFootprint - cumulativeCapture[i]);
 }
-
-/*
-TEST 50% lost to the air after 50 years
-for (let i = 0; i < 50; i++) {
-  cumulativeCapture.push(yearlyFootprint - cumulativeCapture[i] - 6);
-}
-*/
-
-/*
-TEST 50% lost to the air in 50 years after year 50
-for (let i = 0; i < 50; i++) {
-  cumulativeCapture.push(yearlyFootprint - cumulativeCapture[i] - 0.12 * i);
-}
-*/
-
-/*
-TEST 50% lost to the air in 50 years after year 50
-for (let i = 0; i < 50; i++) {
-  cumulativeCapture.push(yearlyFootprint - cumulativeCapture[i] - 0.3 * i);
-}
-*/
 
 const cumulativeCaptureAllLots = cumsum(cumulativeCapture);
 
@@ -118,7 +96,7 @@ export const data = {
   ],
 };
 
-export default function SurefniBill50Years100Years() {
+export default function Footprint100PercentPermanentCapture() {
   return (
     <>
       <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col w-full h-auto '>
