@@ -31,7 +31,7 @@ for (let i = 0; i < arr1.length; i++) {
   }
   arr2.push(sum);
 }
-console.log(arr2);
+
 // END TEST
 
 //Add 50 next years to the capture array
@@ -43,7 +43,6 @@ for (let i = 0; i < 50; i++) {
 // Cumulative capture in one lot for 50 year
 
 const cumulativeCapture = cumsum(capture);
-console.log(cumulativeCapture);
 
 // Capture all lots 100 years
 
@@ -56,7 +55,6 @@ for (let i = 0; i < cumulativeCapture.length; i++) {
   }
   cumulativeCaptureAllLots.push(sumCapture);
 }
-console.log(arr2);
 
 //const cumulativeCaptureAllLots = cumsum(cumulativeCapture); OLD
 
