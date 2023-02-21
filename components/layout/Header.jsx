@@ -21,10 +21,10 @@ export default function Header() {
         <Link href='/'>
           <a className='flex space-x-0 items-end cursor-pointer my-auto'>
             <p className='text-slate-900 text-xl font-semibold tracking-widest'>
-              kolefnis
+              Carbon
             </p>
             <span className='text-xl font-semibold text-orange-700 tracking-widest'>
-              skógar
+              farming.is
             </span>
           </a>
         </Link>
@@ -34,12 +34,12 @@ export default function Header() {
           <ul className='space-x-8'>
             <li className='hidden md:inline cursor-pointer hover:text-orange-600'>
               <Link href='/calculations'>
-                <a>Útreikningar</a>
+                <a>Examples</a>
               </Link>
             </li>
             <li className='hidden md:inline cursor-pointer hover:text-orange-600'>
               <Link href='/about'>
-                <a>Um</a>
+                <a>About</a>
               </Link>
             </li>
 

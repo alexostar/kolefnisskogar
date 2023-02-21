@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import SurefniBill50Years from '@/components/charts/coverstorycharts/SurefniBIll50Yerars';
-import Footprint50Capture100Baseline from '@/components/charts/february2023charts/Footprint50Capture100Baseline';
-import Footprint50Capture100Example1 from '@/components/charts/february2023charts/Footprint50Capture100Example1';
+//import SurefniBill50Years from '@/components/charts/coverstorycharts/SurefniBIll50Yerars';
+//import Footprint50Capture100Baseline from '@/components/charts/february2023charts/Footprint50Capture100Baseline';
+//import Footprint50Capture100Example1 from '@/components/charts/february2023charts/Footprint50Capture100Example1';
 import Footprint50Capture100Example2 from '@/components/charts/february2023charts/Footprint50Capture100Example2';
+import Footprint50Capture100Example3 from '@/components/charts/february2023charts/Footprint50Capture100Example3';
+import Footprint50Capture100Example4 from '@/components/charts/february2023charts/Footprint50Capture100Example4';
 
 export default function Hero() {
   return (
@@ -18,40 +20,23 @@ export default function Hero() {
             height={554}
           />
           <h1 className='absolute text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white bottom-3 sm:botton-5 md:bottom-7 lg:bottom-9 left-3 sm:left-5 md:left-7 lg:left-9 '>
-            Um <i>kolefnisjöfnun</i> með skógrækt
+            Carbon capture examples
           </h1>
         </div>
         <p className='text-sm italic text-right mr-6'>
-          Mynd: Sigurður H. Magnússon
+          Photo: Sigurður H. Magnússon
         </p>
       </div>
 
       <div className='container mx-auto max-w-4xl flex flex-col items-start px-4 text-lg sm:text-xl'>
-        <p className='my-3'>
-          Tökum sem dæmi einstakling sem árið 2022 hyggst byrja að kolefnisjafna
-          sitt líf með áskrift að árlegri nýskógrækt. Honum stendur til boða að
-          kaupa <i>skógræktarpakka</i> þar sem áætluð 50 ára binding skógarins
-          nemur árlegu kolefnisspori hans, um 12 tonn CO<sub>2</sub>
-          -ígildi.
-        </p>
-
-        <p className='my-3'>
-          Ef hann breytir engu í sínum lífsstíl er kolefnisspor hans árið 2040
-          orðið um 216 tonn á meðan skógurinn hefur aðeins bundið tæp 15 tonn,
-          eða tæplega 7% af heildarlosuninni. Eftir 50 ár er kolefnisskuld hans
-          orðin um 356 tonn.
-        </p>
-        <div className='w-full flex justify-center'>
-          <SurefniBill50Years />
-        </div>
-        <div className='w-full flex justify-center'>
-          <Footprint50Capture100Baseline />
-        </div>
-        <div className='w-full flex justify-center'>
-          <Footprint50Capture100Example1 />
-        </div>
         <div className='w-full flex justify-center'>
           <Footprint50Capture100Example2 />
+        </div>
+        <div className='w-full flex justify-center'>
+          <Footprint50Capture100Example3 />
+        </div>
+        <div className='w-full flex justify-center'>
+          <Footprint50Capture100Example4 />
         </div>
 
         <p className='my-3'>

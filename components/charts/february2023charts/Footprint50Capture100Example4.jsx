@@ -23,14 +23,45 @@ const age = capturePerYearFirst50.map((data) => data.age);
 // EXAMPLE HEREAFTER FROM CHATCPT
 const arr1 = [1, 3, 6, 9, 12, 12, 12, 12, 12, 12];
 const arr2 = [];
-let sum = 0;
+let sum1 = 0;
 for (let i = 0; i < arr1.length; i++) {
-  sum += arr1[i];
+  sum1 += arr1[i];
   if (i >= 5 && i <= 9) {
-    sum -= arr1[i - 5];
+    sum1 -= arr1[i - 5];
   }
-  arr2.push(sum);
+  arr2.push(sum1);
 }
+//console.log(arr1, arr2);
+
+const arr3 = [1, 3, 6, 9, 12, 10, 8, 6, 4, 2];
+const arr4 = [];
+let sum2 = 0;
+for (let i = 0; i < arr3.length; i++) {
+  sum2 += arr3[i];
+  if (i >= 5 && i <= 9) {
+    sum2 -= arr3[i - 5];
+  }
+  arr4.push(sum2);
+}
+//console.log(arr3, arr4);
+
+// This is the method that works for taking account for carbon leakage after the certification period
+const arr5 = [1, 3, 6, 9, 12];
+const arr6 = [];
+//let sum3 = 0;
+for (let i = 1; i < 6; i++) {
+  arr5.push(yearlyFootprint - i * 2);
+}
+
+let sum3 = 0;
+for (let i = 0; i < arr5.length; i++) {
+  sum3 += arr5[i];
+  if (i >= 5 && i <= 9) {
+    sum3 -= arr5[i - 5];
+  }
+  arr6.push(sum3);
+}
+//console.log(arr5, arr6);
 
 /* ChatGPT conversation:
 I would like to rephrase the problem I would like to solve as follows:  
@@ -49,14 +80,19 @@ This should give you an output array arr2 that contains the cumulative sums you'
 */
 // END TEST
 
-//Add 50 next years to the capture array
+//Add 100 next years to the capture array accounting for carbon leakage
 for (let i = 0; i < 50; i++) {
-  capture.push(0);
+  capture.push(-0.18);
   age.push(51 + i);
 }
+for (let i = 0; i < 50; i++) {
+  capture.push(0);
+  age.push(101 + i);
+}
 
-// Cumulative capture in one lot for 50 year
+// Cumulative capture in one lot for 100 years
 const cumulativeCapture = cumsum(capture);
+console.log(cumulativeCapture);
 
 // Capture all lots 100 years
 
@@ -95,7 +131,7 @@ for (let i = 0; i < 50; i++) {
 
 // Footprint for 50 years then stop
 const footprint50Years = Array(50).fill(yearlyFootprint);
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 100; i++) {
   footprint50Years.push(0);
 }
 const totalFootprint50Years = cumsum(footprint50Years);
@@ -144,7 +180,7 @@ export const data = {
   labels,
   datasets: [
     {
-      label: 'Kolefnisspor (tonn koltvísýringsígilda)',
+      label: 'Kolefnisspor (tonn koltvísýringsígilda',
       data: totalFootprint50Years.map((data) => data),
       fill: true,
       lineTension: 0.5,
@@ -164,7 +200,7 @@ export const data = {
   ],
 };
 
-export default function Footprint50Capture100Example2() {
+export default function Footprint50Capture100Example4() {
   return (
     <>
       <div className='p-6 border border-slate-900 border-1 rounded-md bg-white my-6 flex flex-col w-full h-auto '>
